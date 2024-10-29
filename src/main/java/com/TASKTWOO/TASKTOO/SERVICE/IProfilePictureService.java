@@ -1,11 +1,11 @@
 package com.TASKTWOO.TASKTOO.SERVICE;
 
-import com.TASKTWOO.TASKTOO.ENTITY.ProfilePicture;
+import com.TASKTWOO.TASKTOO.dto.ResponseDto; // Import the new UploadResponseDto
+import com.TASKTWOO.TASKTOO.dto.UserServiceReqDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-
 public interface IProfilePictureService {
-    void uploadProfilePicture(Long userId, MultipartFile file) throws IOException;
-    ProfilePicture getProfilePicture(Long userId);
+    ResponseDto uploadProfilePicture(UserServiceReqDto userServiceReqDto, MultipartFile file); // Update return type
+    ResponseEntity<byte[]> downloadProfilePicture(Long userId);
 }
