@@ -18,13 +18,13 @@ public class ProfilePictureController {
     public ProfilePictureController(ProfilePictureService profilePictureService) {
         this.profilePictureService = profilePictureService;
     }
-
     @PostMapping("/upload")
     public ResponseDto uploadProfilePicture(
             @RequestParam MultipartFile file,
-            @ModelAttribute UserServiceReqDto userServiceReqDto) { // Use @ModelAttribute to bind request parameters to the DTO
+            @ModelAttribute UserServiceReqDto userServiceReqDto) {
         return profilePictureService.uploadProfilePicture(userServiceReqDto, file);
     }
+
 
     @GetMapping("/download/{userId}")
     public ResponseEntity<byte[]> downloadProfilePicture(@PathVariable Long userId) {

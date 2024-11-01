@@ -17,6 +17,8 @@ public class UserServiceReqDto {
         profilePicture.setFilePath(this.filePath);
         profilePicture.setFileName(this.fileName);
         profilePicture.setFileType(this.fileType);
+        // Set createdAt to the current time when creating the ProfilePicture object
+        profilePicture.setCreatedAt(java.time.LocalDateTime.now());
         return profilePicture;
     }
 }
